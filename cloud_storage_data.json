@@ -42,11 +42,22 @@
     },
     {
       "id": "usr_faceswap_owner",
+      "email": "faceswap209@gmail.com",
+      "displayName": "Huvudadministratör",
+      "role": "ADMIN",
+      "accountContext": "WORKPLACE",
+      "password": "admin",
+      "schoolOrCompany": "FältKoll Centralförvaltning",
+      "createdAt": "2026-01-01 08:00",
+      "lastLogin": "2026-10-22 10:00"
+    },
+    {
+      "id": "usr_faceswap200_alias",
       "email": "faceswap200@gmail.com",
       "displayName": "Huvudadministratör",
       "role": "ADMIN",
       "accountContext": "WORKPLACE",
-      "password": "admin1234",
+      "password": "admin",
       "schoolOrCompany": "FältKoll Centralförvaltning",
       "createdAt": "2026-01-01 08:00",
       "lastLogin": "2026-10-15 22:00"
