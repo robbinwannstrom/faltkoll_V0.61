@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+    <defs>
+      <linearGradient id="g_10b981" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#182234"/>
+        <stop offset="100%" stop-color="#0b1120"/>
+      </linearGradient>
+    </defs>
+    <rect width="640" height="480" fill="url(#g_10b981)"/>
+    <rect x="24" y="24" width="592" height="432" rx="14" fill="none" stroke="#10b981" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.7"/>
+    <circle cx="320" cy="170" r="52" fill="#10b981" opacity="0.14"/>
+    <text x="320" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="#10b981" text-anchor="middle">📷 FÄLTDOKUMENTATION</text>
+    <text x="320" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#ffffff" text-anchor="middle">Moment 2.1: Schakt & bärlager</text>
+    <text x="320" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#94a3b8" text-anchor="middle">Schaktbotten avjämnad & bärlager 0/32 mm packat med markvibrator</text>
+    <rect x="35" y="395" width="570" height="50" rx="10" fill="#000000" opacity="0.85"/>
+    <text x="55" y="426" font-family="ui-monospace, monospace" font-size="13" font-weight="900" fill="#f97316">FÄLTKOLL KONTROLLBEVIS</text>
+    <text x="585" y="426" font-family="ui-monospace, monospace" font-size="12" fill="#ffffff" text-anchor="end">2026-10-07 11:14</text>
+  </svg>

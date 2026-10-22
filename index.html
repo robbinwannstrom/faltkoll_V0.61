@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="sv" class="dark overflow-x-hidden w-full max-w-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <title>FältKoll - Digital Egenkontroll & Byggstöd</title>
+    <meta name="description" content="FältKoll: Offlinesäker digital egenkontroll för schakt, husgrund, plattsättning och enskilt avlopp enligt AMA med fotobevis, tidsstämpel och juridisk rapport." />
+    <meta property="og:title" content="FältKoll - Digital Egenkontroll & Byggstöd" />
+    <meta property="og:description" content="Offlinesäker digital egenkontroll för schakt, husgrund, plattsättning och enskilt avlopp enligt AMA med fotobevis, tidsstämpel och juridisk rapport." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="FältKoll" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      // Early error and rejection tracking before any external module executes
+      window.__faltkollErrors = [];
+      window.__faltkollAppMounted = false;
+
+      // Immediate purge of stale service workers and caches on cloud preview or localhost
+      if ('serviceWorker' in navigator && (window.location.hostname.includes('run.app') || window.location.hostname === 'localhost' || window.self !== window.top)) {
+        try {
+          navigator.serviceWorker.getRegistrations().then(function(regs) {
+            for (var i = 0; i < regs.length; i++) {
+              regs[i].unregister();
+            }
+          });
+          if ('caches' in window) {
+            caches.keys().then(function(names) {
+              for (var j = 0; j < names.length; j++) {
+                caches.delete(names[j]);
+              }
+            });
+          }
+        } catch (e) {}
+      }
+
+      window.addEventListener('error', function (e) {
+        // Ignore benign DOM element resource failures (e.g. img 404 or stylesheet fallback)
+        if (e.target && e.target !== window && (e.target.tagName === 'IMG' || e.target.tagName === 'LINK')) {
+          return;
+        }
+        var msg = (e && (e.message || (e.error && e.error.message))) || '';
+        if (!msg || msg.includes('ResizeObserver') || msg.includes('vite:ws') || msg.includes('connection_test') || msg.includes('AbortError')) {
+          return;
+        }
+        window.__faltkollErrors.push(msg + (e.filename ? ' (' + e.filename + ')' : ''));
+        // Only show fatal error UI if React genuinely fails to mount after timeout
+        setTimeout(function() {
+          if (!window.__faltkollAppMounted) {
+            var errBox = document.getElementById('faltkoll-init-error');
+            if (errBox) {
+              errBox.style.display = 'block';
+              errBox.innerText = 'Fel vid laddning: ' + msg;
+            }
+            var recBtn = document.getElementById('faltkoll-recovery-btn');
+            if (recBtn) recBtn.style.display = 'flex';
+          }
+        }, 10000);
+      });
+      window.addEventListener('unhandledrejection', function (e) {
+        var msg = (e && e.reason && (e.reason.message || String(e.reason))) || '';
+        if (msg) window.__faltkollErrors.push(msg);
+      });
+    </script>
+  </head>
+  <body class="bg-[#121212] text-slate-100 antialiased selection:bg-orange-500 selection:text-black min-h-screen overflow-x-hidden w-full max-w-full relative">
+    <div id="root">
+      <div id="faltkoll-preloader" style="min-height: 100vh; background-color: #121212; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-align: center; color: #ffffff;">
+        <div style="width: 64px; height: 64px; border-radius: 18px; background-color: #f97316; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(249, 115, 22, 0.35);">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"/>
+            <path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/>
+            <path d="M4 15v-3a8 8 0 0 1 16 0v3"/>
+          </svg>
+        </div>
+        <h1 style="font-size: 22px; font-weight: 800; color: #ffffff; margin: 0 0 8px 0; letter-spacing: -0.5px;">FältKoll</h1>
+        <p style="font-size: 13px; color: #94a3b8; margin: 0 0 24px 0;">Digital Egenkontroll & Byggstöd</p>
+        
+        <div style="width: 38px; height: 38px; border: 3px solid rgba(249, 115, 22, 0.2); border-top-color: #f97316; border-radius: 50%; animation: fk-spin 0.8s linear infinite; margin-bottom: 16px;"></div>
+        <div id="faltkoll-loading-status" style="font-size: 13px; font-weight: 600; color: #f97316; letter-spacing: 0.2px;">Laddar FältKoll...</div>
+        
+        <div id="faltkoll-init-error" style="display: none; margin-top: 18px; max-width: 340px; padding: 10px 14px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 12px; color: #fca5a5; font-size: 11px; font-family: monospace; word-break: break-word;"></div>
+        
+        <div id="faltkoll-recovery-btn" style="display: none; margin-top: 20px; flex-direction: column; gap: 10px; width: 100%; max-width: 280px;">
+          <button type="button" onclick="window.__faltkollForceReset()" style="min-height: 46px; background-color: #f97316; color: #000000; border: none; border-radius: 12px; font-size: 13px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);">
+            <span>🔄 Starta om & rensa cache</span>
+          </button>
+          <button type="button" onclick="window.location.reload()" style="min-height: 40px; background-color: #1e1e1e; color: #cbd5e1; border: 1px solid #333333; border-radius: 12px; font-size: 12px; font-weight: 700; cursor: pointer;">
+            Ladda om sidan
+          </button>
+        </div>
+      </div>
+      <style>
+        @keyframes fk-spin { to { transform: rotate(360deg); } }
+      </style>
+    </div>
+
+    <script>
+      // Watchdog timer: progressive status updates with generous timeout
+      window.__faltkollForceReset = function() {
+        try {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(regs) {
+              for (var i = 0; i < regs.length; i++) {
+                regs[i].unregister();
+              }
+            });
+          }
+          if ('caches' in window) {
+            caches.keys().then(function(names) {
+              for (var j = 0; j < names.length; j++) {
+                caches.delete(names[j]);
+              }
+            });
+          }
+          sessionStorage.clear();
+        } catch (e) {}
+        setTimeout(function() {
+          window.location.reload(true);
+        }, 150);
+      };
+
+      setTimeout(function() {
+        if (!window.__faltkollAppMounted) {
+          var status = document.getElementById('faltkoll-loading-status');
+          if (status) {
+            status.innerText = 'Laddar moduler och fältdatabas...';
+          }
+        }
+      }, 3500);
+
+      setTimeout(function() {
+        if (!window.__faltkollAppMounted) {
+          var status = document.getElementById('faltkoll-loading-status');
+          if (status) {
+            status.innerText = 'Initierar... Om appen inte startar, starta om:';
+            status.style.color = '#cbd5e1';
+          }
+          var recBtn = document.getElementById('faltkoll-recovery-btn');
+          if (recBtn) {
+            recBtn.style.display = 'flex';
+          }
+        }
+      }, 12000);
+    </script>
+
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.deferredPrompt = null;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        window.deferredPrompt = e;
+        window.dispatchEvent(new Event('falthjalp-pwa-ready'));
+      });
+
+      // Service worker management: safe relative registration with subpath support
+      if ('serviceWorker' in navigator) {
+        if (
+          window.self !== window.top ||
+          window.location.hostname.includes('run.app') ||
+          window.location.hostname === 'localhost'
+        ) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            for (const registration of registrations) {
+              registration.unregister().catch(() => {});
+            }
+          }).catch(() => {});
+        } else if (window.location.protocol === 'https:') {
+          window.addEventListener('load', () => {
+            // Register relative to current path for GitHub Pages and subpaths
+            navigator.serviceWorker
+              .register('./sw.js', { scope: './' })
+              .catch(() => {});
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
